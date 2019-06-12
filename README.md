@@ -1,14 +1,8 @@
-# A Blank PhoneGap App
+# Nepal Liquor Rate List for 2076/77 
 
-## Usage
 
-### PhoneGap CLI
+### Contact
 
-    $ phonegap create my-app --template blank
+    getpushpan@gmail.com
 
-### Desktop
-
-In your browser, open the file:
-
-    /www/index.html
 
