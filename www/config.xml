@@ -1,20 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Liquor Pan Rate List</name>
+<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>मदिरा मूल्य सूची</name>
     <description>
-        A blank PhoneGap app.
+        Nepal Liquor Rate List for Wholeseller and Retailer.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="getpushpan@gmail.com" href="http://liquor.pushpan.com.np">
+        GC Byapar Kendra
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <icon src="icon.png" />
     <platform name="android">
         <icon src="res/android/icon/icon-36-ldpi.png" density="ldpi" />
         <icon src="res/android/icon/icon-48-mdpi.png" density="mdpi" />
         <icon src="res/android/icon/icon-72-hdpi.png" density="hdpi" />
         <icon src="res/android/icon/iocon-96xhdpi.png" density="xhdpi" />
     </platform>
-</widget>
 
+</widget>
