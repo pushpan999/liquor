@@ -103,7 +103,12 @@
     ["Blue Diamond","Gin","750ml",880,9487,8857.52,10009  ],
     ["Blue Diamond","Gin","375ml",440,9487,8857.52,10009  ],
     ["Blue Diamond","Gin","180ml",220,9487,8857.52,10009  ],
-    ["RedBull","Energy Drink","250ml",96,2088,1875.61,2119.44  ]
+    ["RedBull","Energy Drink","250ml",96,2088,1875.61,2119.44  ],
+    ["Canvas Sweet Red Wine","Wine","750ml",615,6223.06,5782.49,6534.21  ],
+    ["Canvas Dry Red Wine","Wine","750ml",645,6527.69,6065.56,6854.08  ],
+    ["Canvas Sweet White Wine","Wine","750ml",615,6223.06,5782.49,6534.21  ],
+    ["Canvas Sweet Red Wine (Box)","Wine","4 Ltr",2790,9406.90,8740.92,9877.24  ],
+     ["Canvas Sweet White Wine (Box)","Wine","4 Ltr",2790,9406.90,8740.92,9877.24  ]
     
   ]
 }
