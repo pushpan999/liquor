@@ -13,6 +13,6 @@
         <icon src="platforms/browser/res/icon/android/Icon-36-ldpi.png" density="ldpi" />
         <icon src="platforms/browser/res/icon/android/Icon-48-mdpi.png" density="mdpi" />
         <icon src="platforms/browser/res/icon/android/Icon-72-hdpi.png" density="hdpi" />
-        <icon src="platforms/browser/res/icon/android/Iocon-96xhdpi.png" density="xhdpi" />
+        <icon src="platforms/browser/res/icon/android/Icon-96xhdpi.png" density="xhdpi" />
     </platform>
 </widget>
