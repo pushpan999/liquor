@@ -72,14 +72,9 @@
         <script type="text/javascript" src="js/responsive.bootstrap4.min.js"></script>
         <script type="text/javascript">
 			$(document).ready(function() {
-			    $('#rate-lists').DataTable( {
-                   
+			    $('#rate-lists').DataTable( {             
                     "pageLength": 50,
-			        "ajax": "data.json",
-					"columnDefs": [ {
-											"targets": 'no-sort',
-											"orderable": false,
-					} ]
+			        "ajax": "data.json"
 			    } );
 			} );     
 		</script>
