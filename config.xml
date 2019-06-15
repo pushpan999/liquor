@@ -15,6 +15,6 @@
         <icon src="res/icon/android/hdpi.png" density="hdpi" />
         <icon src="res/icon/android/xhdpi.png" density="xhdpi" />
     </platform>
-    <!-- <preference name="android-targetSdkVersion" value="26" /> -->
+    <preference name="android-targetSdkVersion" value="26" />
     <preference name="android-minSdkVersion" value="16" />
 </widget>
