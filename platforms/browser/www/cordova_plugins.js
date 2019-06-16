@@ -167,6 +167,14 @@ module.exports = [
         "clobbers": [
             "window.FileTransfer"
         ]
+    },
+    {
+        "file": "plugins/com.borismus.webintent/www/webintent.js",
+        "id": "com.borismus.webintent.WebIntent",
+        "pluginId": "com.borismus.webintent",
+        "clobbers": [
+            "WebIntent"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -175,7 +183,8 @@ module.exports.metadata =
     "org.apache.cordova.file": "1.3.3",
     "cordova-plugin-app-version": "0.1.9",
     "cordova-plugin-android-permissions": "0.10.0",
-    "org.apache.cordova.file-transfer": "0.5.0"
+    "org.apache.cordova.file-transfer": "0.5.0",
+    "com.borismus.webintent": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

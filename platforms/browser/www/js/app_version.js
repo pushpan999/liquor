@@ -1,6 +1,6 @@
 var hasLatestUpdate = function(successCallback) {
     var versionOptions = {
-        url: "http://liquor.pushpan.com.np/app-version.json",
+        url: "http://liquor.pushpan.com.np/app_version.json",
         dataType: "JSON",
         requestType: 'GET',
         callBack: function(response) {

@@ -18,6 +18,9 @@
         },
         "org.apache.cordova.file-transfer": {
             "PACKAGE_NAME": "com.pushpan.liquor"
+        },
+        "com.borismus.webintent": {
+            "PACKAGE_NAME": "com.pushpan.liquor"
         }
     },
     "dependent_plugins": {}
