@@ -162,6 +162,12 @@
     ["Blue Fin Extra Dry","Gin","180ml",220,8532,8857.52,10009  ],
     ["The Baron Select","Whiskey","750ml",880,8532,8857.52,10009  ],
     ["The Baron Select","Whiskey","375ml",440,8532,8857.52,10009  ],
-    ["The Baron Select","Whiskey","180ml",220,8532,8857.52,10009  ]
+    ["The Baron Select","Whiskey","180ml",220,8532,8857.52,10009  ],
+    ["Bigmaster Regular","Wine","750ml",525,5857.12,5420.34,6124.98  ],
+    ["Bigmaster Premium","Wine","750ml",625,6870.87,6362.31,7189.41  ],
+    ["Bigmaster Red Dry","Wine","750ml",675,7387.74,6842.60,7732.13  ],
+    ["Napa Valley","Wine","750ml",825,8532,8264.85,9339.28  ],
+    ["Blackstone","Wine","750ml",495,8532,5135.88,5803.54  ],
+    ["Bigmaster Box","Wine","4 Ltr",2725,9668.68,8966.47,10132.11  ]
   ]
 }
