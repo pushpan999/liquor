@@ -21,7 +21,6 @@
 			<h2 class="text-center">मदिरा मूल्य सूची</h2>
 			<h4 class="text-center">जि.सी. व्यापार केन्द्र</h4>
 			<p class="text-center font-italic"><small>Tel: +977 9823549033 | Email: getpushpan@gmail.com</small></p>
-			
 			<hr>
     		<div class="main-content">
     			<table id="rate-lists" class="table table-striped table-bordered dt-responsive no-wrap" style="width:100%">
@@ -44,6 +43,7 @@
 					<p class="text-center"><strong>* We do not guarantee the pricing listed to be accurate. It is highly advised to get the accurate rate list from concerned company representatives.</strong></p>
 					<hr>
                     <p class="text-center"><small>Developed with <span class="text-red">♥</span> by <a href="http://pushpan.com.np" target="_blank">Pushpan Kumar GC, GC Byapar Kendra, Bhairahawa</a></small></p>
+					<p class="text-center"><small>Version: 2.0.5</small></p>
                 </div>
             </footer>
 			<!-- use this for popup-->
@@ -74,7 +74,8 @@
 		<!-- <script type="text/javascript" src="app_version.js"></script> -->
         <script type="text/javascript">
 			$(document).ready(function() {
-			    $('#rate-lists').DataTable( {             
+			    $('#rate-lists').DataTable( {  
+					"ordering": false,           
                     "pageLength": 50,
 			        "ajax": "data.json"
 			    } );
