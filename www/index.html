@@ -65,13 +65,63 @@
 			</div>
 			<!-- use this for popup-->
 		</div>
-		<script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" src="js/dataTables.responsive.min.js"></script>
 		<script type="text/javascript" src="js/responsive.bootstrap4.min.js"></script>
-		<script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script>
+            var isPendingInterstitial = false;
+var isAutoshowInterstitial = false;
+
+function prepareInterstitialAd() {
+    if (!isPendingInterstitial) { // We won't ask for another interstitial ad if we already have an available one
+        admob.requestInterstitialAd({
+            autoShowInterstitial: isAutoshowInterstitial
+        });
+    }
+}
+
+function onAdLoadedEvent(e) {
+    if (e.adType === admob.AD_TYPE.INTERSTITIAL && !isAutoshowInterstitial) {
+        isPendingInterstitial = true;
+    }
+}
+
+function onDeviceReady() {
+    document.removeEventListener('deviceready', onDeviceReady, false);
+
+    admob.setOptions({
+        publisherId:          "pub-2766731488555654",
+        interstitialAdId:     "ca-app-pub-2766731488555654/2502290745",
+    });
+
+    document.addEventListener(admob.events.onAdLoaded, onAdLoadedEvent);
+    prepareIntestitialAd();
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function showInterstitialAd() {
+    if (isPendingInterstitial) {
+        admob.showInterstitialAd(function () {
+                isPendingInterstitial = false;
+                isAutoshowInterstitial = false;
+                prepareInterstitialAd();
+        });
+    } else {
+        // The interstitial is not prepared, so in this case, we want to show the interstitial as soon as possible
+        isAutoshowInterstitial = true;
+        admob.requestInterstitialAd({
+            autoShowInterstitial: isAutoshowInterstitial
+        });
+    }
+}
+showInterstitialAd();
+		</script>
+		
     </body>
 </html>
