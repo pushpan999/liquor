@@ -11,5 +11,5 @@
     <access origin="*" />
     <preference name="android-targetSdkVersion" value="28" />
     <preference name="android-minSdkVersion" value="16" />
-    <gap:plugin name="com-admob-plugin" version="5.3.1" source="npm"/>
+    <gap:plugin name="phonegap-admob" source="npm" />
 </widget>

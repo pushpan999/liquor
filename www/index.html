@@ -74,35 +74,91 @@
 		<script type="text/javascript" src="js/responsive.bootstrap4.min.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         <script>
-
-    function showInterstitial(){
-        admob.isInterstitialReady(function(isReady){
-            if(isReady){
-                admob.showInterstitial();
-            }else{
-            	alert("need cached before show");
-            }
+            var isAppForeground = true;
+    
+    function initAds() {
+      if (admob) {
+        var adPublisherIds = {
+          android : {
+            banner : "ca-app-pub-2766731488555654/8021500291",
+            interstitial : "ca-app-pub-2766731488555654/2502290745"
+          }
+        };
+    	  
+        var admobid = (/(android)/i.test(navigator.userAgent)) ? adPublisherIds.android : adPublisherIds.ios;
+            
+        admob.setOptions({
+          publisherId:          admobid.banner,
+          interstitialAdId:     admobid.interstitial,
+          autoShowBanner:       true,
+          autoShowInterstitial: false,
+          autoShowRewarded:     false,
+          
         });
+
+        registerAdEvents();
+        
+      } else {
+        alert('AdMobAds plugin not ready');
+      }
     }
-    function onInterstitialReceive (message) {
-        alert("onMInterstitialReceive ,you can show it now");
-    }
-    function onReceiveFail (message) {
-    	var msg=admob.Error[message.data];
-        if(msg==undefined){
-           msg=message.data;
+    
+    function onAdLoaded(e) {
+      if (isAppForeground) {
+        if (e.adType === admob.AD_TYPE.AD_TYPE_BANNER) {
+          console.log("New banner received");
+        } else if (e.adType === admob.INTERSTITIAL) {
+          console.log("An interstitial has been loaded and autoshown. If you want to automatically show the interstitial ad, set 'autoShowInterstitial: true' in admob.setOptions() or remove it");
+          admob.showInterstitialAd();
+        } else if (e.adType === admob.AD_TYPE_REWARDED) {
+          console.log("New rewarded ad received");
+          admob.showRewardedAd();
         }
-       alert("load fail: "+message.type+"  "+msg);
+      }
     }
+    
+    function onPause() {
+      if (isAppForeground) {
+        admob.destroyBannerView();
+        isAppForeground = false;
+      }
+    }
+    
+    function onResume() {
+      if (!isAppForeground) {
+        setTimeout(admob.createBannerView, 1);
+        setTimeout(admob.requestInterstitialAd, 1);
+        isAppForeground = true;
+      }
+    }
+    
+    // optional, in case respond to events
+    function registerAdEvents() {
+      document.addEventListener(admob.events.onAdLoaded, onAdLoaded);
+      document.addEventListener(admob.events.onAdFailedToLoad, function (e) {});
+      document.addEventListener(admob.events.onAdOpened, function (e) {});
+      document.addEventListener(admob.events.onAdClosed, function (e) {});
+      document.addEventListener(admob.events.onAdLeftApplication, function (e) {});
+      
+      document.addEventListener("pause", onPause, false);
+      document.addEventListener("resume", onResume, false);
+    }
+        
     function onDeviceReady() {
-        admob.initAdmob("ca-app-pub-2766731488555654/8021500291","ca-app-pub-2766731488555654/2502290745");
-        document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
-        document.addEventListener(admob.Event.onInterstitialFailedReceive,onReceiveFail, false);
+      document.removeEventListener('deviceready', onDeviceReady, false);
+      initAds();
+
+      // display a banner at startup
+      admob.createBannerView();
+        
+      // request an interstitial ad
+      admob.requestInterstitialAd();
+
+      // request a rewarded ad
+      admob.requestRewardedAd();
     }
-
-	document.addEventListener('deviceready',onDeviceReady, false);
-	showInterstitial();
-
+    
+    document.addEventListener("deviceready", onDeviceReady, false);
 		</script>
 		
     </body>
