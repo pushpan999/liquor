@@ -74,53 +74,35 @@
 		<script type="text/javascript" src="js/responsive.bootstrap4.min.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         <script>
-            var isPendingInterstitial = false;
-var isAutoshowInterstitial = false;
 
-function prepareInterstitialAd() {
-    if (!isPendingInterstitial) { // We won't ask for another interstitial ad if we already have an available one
-        admob.requestInterstitialAd({
-            autoShowInterstitial: isAutoshowInterstitial
+    function showInterstitial(){
+        admob.isInterstitialReady(function(isReady){
+            if(isReady){
+                admob.showInterstitial();
+            }else{
+            	alert("need cached before show");
+            }
         });
     }
-}
-
-function onAdLoadedEvent(e) {
-    if (e.adType === admob.AD_TYPE.INTERSTITIAL && !isAutoshowInterstitial) {
-        isPendingInterstitial = true;
+    function onInterstitialReceive (message) {
+        alert("onMInterstitialReceive ,you can show it now");
     }
-}
-
-function onDeviceReady() {
-    document.removeEventListener('deviceready', onDeviceReady, false);
-
-    admob.setOptions({
-        publisherId:          "pub-2766731488555654",
-        interstitialAdId:     "ca-app-pub-2766731488555654~3172381767",
-    });
-
-    document.addEventListener(admob.events.onAdLoaded, onAdLoadedEvent);
-    prepareIntestitialAd();
-}
-
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function showInterstitialAd() {
-    if (isPendingInterstitial) {
-        admob.showInterstitialAd(function () {
-                isPendingInterstitial = false;
-                isAutoshowInterstitial = false;
-                prepareInterstitialAd();
-        });
-    } else {
-        // The interstitial is not prepared, so in this case, we want to show the interstitial as soon as possible
-        isAutoshowInterstitial = true;
-        admob.requestInterstitialAd({
-            autoShowInterstitial: isAutoshowInterstitial
-        });
+    function onReceiveFail (message) {
+    	var msg=admob.Error[message.data];
+        if(msg==undefined){
+           msg=message.data;
+        }
+       alert("load fail: "+message.type+"  "+msg);
     }
-}
-showInterstitialAd();
+    function onDeviceReady() {
+        admob.initAdmob("ca-app-pub-2766731488555654/8021500291","ca-app-pub-2766731488555654/2502290745");
+        document.addEventListener(admob.Event.onInterstitialReceive, onInterstitialReceive, false);
+        document.addEventListener(admob.Event.onInterstitialFailedReceive,onReceiveFail, false);
+    }
+
+	document.addEventListener('deviceready',onDeviceReady, false);
+	showInterstitial();
+
 		</script>
 		
     </body>
