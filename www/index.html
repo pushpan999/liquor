@@ -13,8 +13,8 @@
     	<div class="container">
       <div class="container">
     <div class="float-right">
-       <!-- <a class="btn btn-sm btn-danger" href="https://liquor.pushpan.com.np/accounts/login/" target="_blank">Login</a>
-       <a class="btn btn-sm btn-success" href="https://liquor.pushpan.com.np/signup/" target="_blank">Register</a> -->
+       <a class="btn btn-sm btn-danger" href="https://liquor.pushpan.com.np/accounts/login/" target="_blank">Login</a>
+       <a class="btn btn-sm btn-success" href="https://liquor.pushpan.com.np/signup/" target="_blank">Register</a>
      
     </div>
     </div>
@@ -111,45 +111,42 @@
       }
     }
     
-  function onAdLoaded(e) {
-    if (isAppForeground) {
-        if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
-            admob.showInterstitialAd();
-            try {
-                await admob.showInterstitialAd();
-            } catch (err) {
-                console.log('Error showing/hiding interstitial ad:', err);
-            }
+    function onAdLoaded(e) {
+      if (isAppForeground) {
+        if (e.adType === admob.AD_TYPE.AD_TYPE_BANNER) {
+          console.log("New banner received");
+        } else if (e.adType === admob.INTERSTITIAL) {
+          console.log("An interstitial has been loaded and autoshown. If you want to automatically show the interstitial ad, set 'autoShowInterstitial: true' in admob.setOptions() or remove it");
+          admob.showInterstitialAd();
+        } else if (e.adType === admob.AD_TYPE_REWARDED) {
+          console.log("New rewarded ad received");
+          admob.showRewardedAd();
         }
+      }
     }
-}
 
-function onAdClosed(e) {
+    function onAdClosed(e) {
     if (isAppForeground) {
         if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
             setTimeout(admob.requestInterstitialAd, 1000 * 60 * 2);
         }
     }
 }
-
-async function onPause() {
-    if (isAppForeground) {
-        try {
-            await admob.destroyBannerView();
-        } catch (err) {
-            console.log('Error destroying banner view:', err);
-        }
+    
+    function onPause() {
+      if (isAppForeground) {
+        admob.destroyBannerView();
         isAppForeground = false;
+      }
     }
-}
-
-function onResume() {
-    if (!isAppForeground) {
+    
+    function onResume() {
+      if (!isAppForeground) {
+        setTimeout(admob.createBannerView, 1);
         setTimeout(admob.requestInterstitialAd, 1);
         isAppForeground = true;
+      }
     }
-}
-
     
     // optional, in case respond to events
     function registerAdEvents() {
@@ -172,13 +169,13 @@ function onResume() {
         
       // request an interstitial ad
       admob.requestInterstitialAd();
+      setInterval(showInterstitialAd, 120000);
       // request a rewarded ad
       admob.requestRewardedAd();
     }
     
     document.addEventListener("deviceready", onDeviceReady, false);
 		</script>
-
 		
     </body>
 </html>
