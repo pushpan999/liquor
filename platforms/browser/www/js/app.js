@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('#rate-lists').DataTable( {  
         "ordering": true,           
         "pageLength": 50,
-        "ajax": "http://liquor.pushpan.com.np/api/items/?format=datatables",
+        "ajax": "https://liquor.pushpan.com.np/api/items/?format=datatables",
 	"columns": [
             { "data": "title" },
             { "data": "category" },
