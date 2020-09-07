@@ -17,6 +17,9 @@ body {
 .text-red {
 	color: red;
 }
+.bg-success {
+    background-color: #156728 !important;
+}
 .modal-header {
     padding: .5rem;
     background: #11381a;
@@ -34,7 +37,7 @@ body {
     
 }
 .modal {
-	background: #28a745;
+	background: #0a6920;
 }
 .close {
     
@@ -43,7 +46,7 @@ body {
 }
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255,255,255,1);
-    border-bottom: 1px solid #22923c;
+    border-bottom: 1px solid #166128;
 }
 
 .navbar-nav li:last-child .nav-link {
@@ -56,5 +59,22 @@ body {
 
 .navbar-dark .navbar-toggler {
     border: none !important;
+}
+
+.navbar {
+    padding: .5rem 0 !important;
+}
+
+.navbar-collapse {
+    background: #054213;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    padding-left: 1rem;
+}
+
+.navbar-dark .navbar-toggler {
+    padding-right: 1rem !important;
 }
 
