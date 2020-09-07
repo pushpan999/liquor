@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $('#rate-lists').DataTable( {  
-        "ordering": true,           
+        "ordering": true,
+        "lengthChange": false,           
         "pageLength": 50,
         "ajax": "https://liquor.pushpan.com.np/api/items/?format=datatables",
 	"columns": [
@@ -18,7 +19,8 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('#old-rate-lists').DataTable( {  
-        "ordering": true,           
+        "ordering": true, 
+        "lengthChange": false,              
         "pageLength": 50,
         "ajax": "data.json",
 	"columns": [

@@ -1,6 +1,6 @@
 body {
 	font-size: .85rem !important;
-	padding-top: 0.5rem;
+	padding-top: 5rem;
 	padding-bottom: 0.5rem;
 }
 .dataTables_wrapper .dataTables_filter input {
@@ -19,13 +19,42 @@ body {
 }
 .modal-header {
     padding: .5rem;
-    background: #ffc107;
+    background: #11381a;
     border-bottom: none;
+    color: #ead008;
 }
 .modal-body {
-	background: #000000;
+    background: #135422;
+    color: #fff;
+    font-size: 1.25em;
+}
+.modal-body a {
+    color: #7bedf9;
+    text-decoration: underline;
+    
 }
 .modal {
-	background: #000000;
+	background: #28a745;
+}
+.close {
+    
+    color: #ead008;
+    opacity: 1;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,1);
+    border-bottom: 1px solid #22923c;
+}
+
+.navbar-nav li:last-child .nav-link {
+    border:none
+}
+
+.nav-item.active>a {
+    color: rgba(255,255,255,0.5) !important;
+}
+
+.navbar-dark .navbar-toggler {
+    border: none !important;
 }
 
