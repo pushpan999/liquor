@@ -10,6 +10,7 @@ $(document).ready(function() {
     function onOnline() {
         $( "#network-online" ).removeClass( "d-none" );
         $( "#network-offline" ).addClass( "d-none" );
+        $( "#network" ).addClass( "d-none" );
 
     }         
     } );  
