@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.pushpan.liquor"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.pushpan.liquor"
         }
     },
     "dependent_plugins": {}
