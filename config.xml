@@ -1,11 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.pushpan.liquor" versionCode="30006" version="3.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>मदिरा मूल्य सूची</name>
+    <name>Nepal Liquor Rate List</name>
     <description>
-        Nepal Liquor Rate List for Wholeseller and Retailer.
+        <p>मदिरा मूल्य सूची</p>
+        <P>मदिरा मूल्य सूची<br/>
+App provides recent nepal domestic liquor rate list for wholesale and retail. <br/>
+Supports for both online and offline mode. <br/>
+Company can manage brand and price list. <br/>
+Super easy to search. <br/>
+Rate list provided up to 1 year back date. <br/> </p>
     </description>
     <author email="getpushpan@gmail.com" href="http://liquor.pushpan.com.np">
-        GC Byapar Kendra
+        Pushpan Kumar GC (GC Byapar Kendra)
     </author>
     <content src="index.html" />
     <access origin="*" />
