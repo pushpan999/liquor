@@ -2,7 +2,6 @@
 <widget id="com.pushpan.liquor" versionCode="30006" version="3.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Nepal Liquor Rate List</name>
     <description>
-        <p>मदिरा मूल्य सूची</p>
         <P>मदिरा मूल्य सूची<br/>
 App provides recent nepal domestic liquor rate list for wholesale and retail. <br/>
 Supports for both online and offline mode. <br/>
