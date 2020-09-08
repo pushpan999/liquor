@@ -30,6 +30,9 @@
           <li class="nav-item">
             <a class="nav-link" href="https://liquor.pushpan.com.np/accounts/register/">Register</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="offline.html">Latest Rate List (2077/78) (Offline)</a>
+          </li>
           <hr>
           <li>
         
@@ -44,8 +47,8 @@
 
     	<div class="container">
             <div id="network" class="alert alert-warning d-none" role="alert">
-                Your are  <strong>offline</strong>. Please connect to the internet.
-              </div>
+                No internet connection. Go to offline mode. <a href="offline.html"><strong>Offline Mode</strong></a>
+            </div>
     		<div class="main-content">
     			<table id="rate-lists" class="table table-striped table-bordered dt-responsive no-wrap" style="width:100%">
     				<thead>
@@ -107,6 +110,33 @@
 		<script type="text/javascript" src="js/responsive.bootstrap4.min.js"></script>
         <script type="text/javascript" src="js/pulltorefresh.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
+        <script>
+        $(document).ready(function() {
+            $.fn.dataTable.ext.errMode = 'throw';
+
+            $('#rate-lists').DataTable( {  
+                "ordering": true,
+                "lengthChange": false,           
+                "pageLength": 50,
+                "ajax": "https://liquor.pushpan.com.np/api/items/?format=datatables",
+            "columns": [
+                    { "data": "title" },
+                    { "data": "category" },
+                    { "data": "vol" },
+                    { "data": "mrp" },
+                    { "data": "ws_aft_vat" },
+                    { "data": "retail_bf_vat" },
+                { "data": "retail_aft_vat" },
+
+                ]
+            } );
+
+            $(function() {
+                $('#promotion').modal('show');
+            });
+                
+        } );  
+        </script>
         <script>
             PullToRefresh.init({
                 mainElement: 'body',
